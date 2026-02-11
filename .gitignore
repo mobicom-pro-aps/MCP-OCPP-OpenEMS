@@ -237,3 +237,6 @@ io.openems.edge.application/c:/
 
 ### Docker - for Dev UI under WSL ###
 docker-compose.override.yml
+io.mobicom.edge.meter.simulator/.settings
+io.mobicom.edge.meter.simulator/generated
+ui/package-lock.json
