@@ -46,9 +46,9 @@ public class SimulatedMeterImpl extends AbstractOpenemsModbusComponent implement
 	public SimulatedMeterImpl() {
 		super(//
 				OpenemsComponent.ChannelId.values(), //
+				ElectricityMeter.ChannelId.values(), //
 				ModbusComponent.ChannelId.values(), //
-				SimulatedMeter.ChannelId.values(), //
-				ElectricityMeter.ChannelId.values() //
+				SimulatedMeter.ChannelId.values() //
 		);
 	}
 
@@ -71,7 +71,11 @@ public class SimulatedMeterImpl extends AbstractOpenemsModbusComponent implement
 	protected ModbusProtocol defineModbusProtocol() {
 		return new ModbusProtocol(this, //
 			new FC3ReadRegistersTask(1000, Priority.HIGH,
-				m(ElectricityMeter.ChannelId.ACTIVE_POWER, new SignedWordElement(1000))));
+				m(ElectricityMeter.ChannelId.ACTIVE_POWER, new SignedWordElement(1000))),
+			new FC3ReadRegistersTask(1001, Priority.HIGH,
+				m(ElectricityMeter.ChannelId.ACTIVE_PRODUCTION_ENERGY, new SignedWordElement(1001))),
+			new FC3ReadRegistersTask(1002, Priority.HIGH,
+				m(ElectricityMeter.ChannelId.REACTIVE_POWER, new SignedWordElement(1002))));
 	}
 	
 	@Override

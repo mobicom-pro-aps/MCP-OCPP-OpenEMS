@@ -9,7 +9,7 @@ import io.openems.edge.common.test.ComponentTest;
 
 public class MyModbusDeviceTest {
 
-	private static final String COMPONENT_ID = "component0";
+	private static final String COMPONENT_ID = "meter0";
 	private static final String MODBUS_ID = "modbus0";
 	
 	@Test
